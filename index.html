@@ -1,0 +1,844 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>劉志文 Justin Liu — 前端履歷 (Bootstrap 5 RWD)</title>
+    <!-- Reset CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/reset-css@5.0.2/reset.min.css" rel="stylesheet">
+    
+    <!-- Bootstrap 5.3.3 CSS CDN -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+
+    <!-- Bootstrap Icons CDN -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+
+    <!-- 獨立自訂樣式表 -->
+    <link rel="stylesheet" href="index.resume.bootstrap.css" />
+  </head>
+
+  <body>
+    <!-- ==========================================
+         1. 導航列 (Navbar)
+         ========================================== -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow-sm">
+      <div class="container">
+        <a class="navbar-brand d-flex align-items-center gap-2" href="#">
+          <i class="bi bi-person-badge-fill text-primary"></i>
+          <span>劉志文 Justin Liu</span>
+          <span class="badge bg-primary-subtle text-primary border border-primary-subtle fs-6 d-none d-sm-inline">
+            AI/ML 工程師
+          </span>
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarResponsive"
+          aria-controls="navbarResponsive"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="#project-carousel-section">
+                <i class="bi bi-images me-1"></i>專案輪播
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#about-section">
+                <i class="bi bi-info-circle me-1"></i>簡介
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#skills-section">
+                <i class="bi bi-lightning-charge me-1"></i>技術亮點
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#projects-section">
+                <i class="bi bi-folder-check me-1"></i>核心專案
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#experience-section">
+                <i class="bi bi-briefcase me-1"></i>學歷經歷
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#feedback-section">
+                <i class="bi bi-chat-dots me-1"></i>意見回饋
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- 主要內容容器 -->
+    <main class="container my-4 my-md-5">
+      <!-- ==========================================
+           專供 AI Agent 讀取之後設資料 (Frontmatter / Metadata)
+           使用 d-none 於訪客視覺隱藏，但完整保留 DOM 結構供 AI / 爬蟲解析
+           ========================================== -->
+      <header id="frontmatter" class="d-none" aria-hidden="true">
+        <dl>
+          <dt>description</dt>
+          <dd>融合獵頭建議與 STAR故事化框架的 AI/ML 應用工程師通用增強版履歷。</dd>
+          <dt>contributors</dt>
+          <dd>human/Justin Liu, agents/antigravity</dd>
+          <dt>created</dt>
+          <dd>2026-06-17</dd>
+          <dt>updated</dt>
+          <dd>2026-10-16</dd>
+        </dl>
+      </header>
+
+      <!-- ==========================================
+           2. 專案精選輪播器 (Carousel)
+           ========================================== -->
+      <section id="project-carousel-section" class="mb-5">
+        <h2 class="section-title">
+          <i class="bi bi-stars text-warning me-2"></i>核心專案精選輪播
+        </h2>
+        <div
+          id="projectCarousel"
+          class="carousel slide carousel-fade"
+          data-bs-ride="carousel"
+        >
+          <!-- 指示器 (Indicators) -->
+          <div class="carousel-indicators">
+            <button
+              type="button"
+              data-bs-target="#projectCarousel"
+              data-bs-slide-to="0"
+              class="active"
+              aria-current="true"
+              aria-label="專案 1"
+            ></button>
+            <button
+              type="button"
+              data-bs-target="#projectCarousel"
+              data-bs-slide-to="1"
+              aria-label="專案 2"
+            ></button>
+            <button
+              type="button"
+              data-bs-target="#projectCarousel"
+              data-bs-slide-to="2"
+              aria-label="專案 3"
+            ></button>
+            <button
+              type="button"
+              data-bs-target="#projectCarousel"
+              data-bs-slide-to="3"
+              aria-label="專案 4"
+            ></button>
+            <button
+              type="button"
+              data-bs-target="#projectCarousel"
+              data-bs-slide-to="4"
+              aria-label="專案 5"
+            ></button>
+          </div>
+
+          <!-- 輪播內容 (Inner) -->
+          <div class="carousel-inner">
+            <!-- Slide 1: 智慧藥盒 v5 -->
+            <div class="carousel-item active" data-bs-interval="4500">
+              <img
+                src="https://picsum.photos/id/1/1200/500"
+                class="d-block w-100"
+                alt="智慧藥盒 v5 (TinyML 端對端應用)"
+              />
+              <div class="carousel-caption">
+                <span class="badge bg-success mb-2">TinyML / IoT / 醫療 AI</span>
+                <h3 class="text-white">智慧藥盒 v5 (TinyML 端對端應用)</h3>
+                <p class="text-light mb-2">
+                  低成本醫療 AI 落地場景：實現從資料採集、模型訓練到邊緣推論與手機 LINE 通知的完整閉環。
+                </p>
+                <a
+                  href="https://drive.google.com/file/d/1F78Y_txgJC2-M-BR1s0JhNmtxL0-PMh_/view?usp=drive_link"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn btn-sm btn-primary mt-1"
+                >
+                  <i class="bi bi-box-arrow-up-right me-1"></i>檢視專案展示
+                </a>
+              </div>
+            </div>
+
+            <!-- Slide 2: 工程報告自動化工具 -->
+            <div class="carousel-item" data-bs-interval="4500">
+              <img
+                src="https://picsum.photos/id/160/1200/500"
+                class="d-block w-100"
+                alt="工程報告自動化工具"
+              />
+              <div class="carousel-caption">
+                <span class="badge bg-info text-dark mb-2">OpenCV / OCR / 自動化</span>
+                <h3 class="text-white">工程報告自動化工具 (OpenCV + OCR)</h3>
+                <p class="text-light mb-2">
+                  解決半導體 FAE 手動填表痛點，報表產出時間由 3 小時縮短至 15 分鐘，效率大幅提升 90%。
+                </p>
+                <a
+                  href="https://drive.google.com/file/d/1le9VVicL6hyVQyrogJTSI3JL63-opP5b/view?usp=sharing"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn btn-sm btn-info mt-1"
+                >
+                  <i class="bi bi-box-arrow-up-right me-1"></i>檢視專案成果
+                </a>
+              </div>
+            </div>
+
+            <!-- Slide 3: ESP-MIAO -->
+            <div class="carousel-item" data-bs-interval="4500">
+              <img
+                src="https://picsum.photos/id/96/1200/500"
+                class="d-block w-100"
+                alt="ESP-MIAO 邊緣語音助理"
+              />
+              <div class="carousel-caption">
+                <span class="badge bg-warning text-dark mb-2">邊緣語音 / WebSocket / MQTT</span>
+                <h3 class="text-white">ESP-MIAO (邊緣語音助理與 IoT 控制系統)</h3>
+                <p class="text-light mb-2">
+                  ESP32 雙核心分工架構：即時音訊串流防 OOM、7種眼部動畫回饋、喚醒詞偵測到 MQTT 裝置控制。
+                </p>
+                <a
+                  href="https://gamma.app/docs/ESP-MIAO--vsa20po1fli8aki?mode=doc"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn btn-sm btn-warning mt-1"
+                >
+                  <i class="bi bi-box-arrow-up-right me-1"></i>閱讀 Gamma 簡報
+                </a>
+              </div>
+            </div>
+
+            <!-- Slide 4: LINE智慧助理 -->
+            <div class="carousel-item" data-bs-interval="4500">
+              <img
+                src="https://picsum.photos/id/60/1200/500"
+                class="d-block w-100"
+                alt="LINE智慧助理"
+              />
+              <div class="carousel-caption">
+                <span class="badge bg-danger mb-2">LLM / Gemini API / Flask</span>
+                <h3 class="text-white">LINE智慧助理 (LLM: Gemini API 整合)</h3>
+                <p class="text-light mb-2">
+                  Python + Flask + LINE Messaging API + Google Gemini API 深度整合，優化 ChatSession 狀態管理降低延遲。
+                </p>
+                <a
+                  href="https://cloud-services-dashboard.pages.dev/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn btn-sm btn-danger mt-1"
+                >
+                  <i class="bi bi-box-arrow-up-right me-1"></i>開啟服務儀表板
+                </a>
+              </div>
+            </div>
+
+            <!-- Slide 5: vacuumd -->
+            <div class="carousel-item" data-bs-interval="4500">
+              <img
+                src="https://picsum.photos/id/445/4256/2819"
+                class="d-block w-100"
+                alt="vacuumd 掃地機器人 LAN 本地控制器"
+              />
+              <div class="carousel-caption">
+                <span class="badge bg-primary mb-2">LAN 控制器 / FastAPI / MQTT</span>
+                <h3 class="text-white">vacuumd 掃地機器人 LAN 本地控制器</h3>
+                <p class="text-light mb-2">
+                  擺脫雲端依賴：封裝底層 miIO 協議，整合斷網容錯、智慧排程防衝突與 MQTT / Home Assistant 生態，打造高可靠度的本地控制方案。
+                </p>
+                <a
+                  href="https://docs.google.com/presentation/d/1phy_TuwkIL_leaYSENWKMkuZMr_t9ejJSgWXFR08Bsk/view?usp=drive_link"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn btn-sm btn-primary mt-1"
+                >
+                  <i class="bi bi-box-arrow-up-right me-1"></i>閱讀簡報
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- 輪播控制按鈕 (Controls) -->
+          <button
+            class="carousel-control-prev"
+            type="button"
+            data-bs-target="#projectCarousel"
+            data-bs-slide="prev"
+          >
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">上一張</span>
+          </button>
+          <button
+            class="carousel-control-next"
+            type="button"
+            data-bs-target="#projectCarousel"
+            data-bs-slide="next"
+          >
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">下一張</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- ==========================================
+           個人簡介 (Hero Profile Banner / About Section)
+           ========================================== -->
+      <section id="about-section" class="mb-5">
+        <div class="card border-0 shadow-sm hover-shadow overflow-hidden">
+          <div class="card-body p-4 p-md-5">
+            <div class="row align-items-center g-4">
+              <div class="col-lg-8">
+                <div class="d-flex flex-wrap align-items-center gap-2 mb-3">
+                  <span class="badge bg-primary px-3 py-2 fs-6">
+                    <i class="bi bi-cpu me-1"></i>AI / ML 應用工程師
+                  </span>
+                  <span class="badge bg-secondary-subtle text-secondary border">
+                    15年半導體工程 + 軟體 AI
+                  </span>
+                </div>
+                <h1 class="display-6 fw-bold text-dark mb-2">
+                  劉志文 <span class="text-secondary fs-4 fw-normal">Justin Liu</span>
+                </h1>
+                <p class="lead fs-6 text-muted mb-3">
+                  專注於 <strong>邊緣運算 (TinyML)</strong>、<strong>電腦視覺 (OpenCV)</strong> 與 <strong>LLM API 系統整合</strong>。擁有 15 年半導體 CMP 製程與 FAE 實務背景，具備扎實的實驗數據清理、特徵萃取邏輯與跨領域軟硬體整合實力。
+                </p>
+                <div class="d-flex flex-wrap gap-2 mb-4">
+                  <span class="badge bg-light text-dark border"><i class="bi bi-check-circle-fill text-success me-1"></i>ESP32 / TinyML</span>
+                  <span class="badge bg-light text-dark border"><i class="bi bi-check-circle-fill text-success me-1"></i>Python / PyTorch</span>
+                  <span class="badge bg-light text-dark border"><i class="bi bi-check-circle-fill text-success me-1"></i>Flask API / Docker</span>
+                  <span class="badge bg-light text-dark border"><i class="bi bi-check-circle-fill text-success me-1"></i>LINE Bot / LLM</span>
+                  <span class="badge bg-light text-dark border"><i class="bi bi-check-circle-fill text-success me-1"></i>半導體 FAE &amp; CMP</span>
+                </div>
+                <div class="d-flex flex-wrap gap-2">
+                  <a href="#projects-section" class="btn btn-primary px-4">
+                    <i class="bi bi-folder-check me-1"></i>瀏覽核心專案
+                  </a>
+                  <a href="#feedback-section" class="btn btn-outline-secondary px-4">
+                    <i class="bi bi-chat-dots me-1"></i>聯絡回饋
+                  </a>
+                </div>
+              </div>
+              <div class="col-lg-4 text-center d-none d-lg-block">
+                <div class="p-4 bg-light rounded-4 border">
+                  <i class="bi bi-person-workspace text-primary display-1 mb-2"></i>
+                  <h6 class="fw-bold text-dark mb-1">跨界整合實踐者</h6>
+                  <p class="small text-secondary mb-0">Domain Knowledge &times; Modern AI</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==========================================
+           3. 技術亮點摘要 (Technical Highlights)
+           ========================================== -->
+      <section id="skills-section" class="mb-5">
+        <h2 class="section-title">
+          <i class="bi bi-gear-wide-connected text-primary me-2"></i>技術亮點摘要
+        </h2>
+
+        <div class="row g-3 row-cols-1 row-cols-md-2 row-cols-lg-3">
+          <!-- 1. Python / ML -->
+          <div class="col">
+            <div class="card h-100 border-0 shadow-sm hover-shadow p-3">
+              <div class="card-body">
+                <div class="highlight-icon bg-primary-subtle text-primary">
+                  <i class="bi bi-cpu"></i>
+                </div>
+                <h5 class="card-title fw-bold">Python / ML 框架能力</h5>
+                <p class="card-text text-secondary small">
+                  具備 Python、PyTorch、TensorFlow、OpenCV 實戰經驗，擅長電腦視覺與機器學習模型建構。
+                </p>
+                <div class="d-flex flex-wrap gap-1 mt-auto">
+                  <span class="badge bg-light text-dark border">Python</span>
+                  <span class="badge bg-light text-dark border">PyTorch</span>
+                  <span class="badge bg-light text-dark border">TensorFlow</span>
+                  <span class="badge bg-light text-dark border">OpenCV</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 2. 後端與系統串接 -->
+          <div class="col">
+            <div class="card h-100 border-0 shadow-sm hover-shadow p-3">
+              <div class="card-body">
+                <div class="highlight-icon bg-success-subtle text-success">
+                  <i class="bi bi-hdd-network"></i>
+                </div>
+                <h5 class="card-title fw-bold">後端與系統串接</h5>
+                <p class="card-text text-secondary small">
+                  精通 Flask RESTful API、LINE Bot 服務整合、Docker 容器化部署與 Git 團隊版本控管。
+                </p>
+                <div class="d-flex flex-wrap gap-1 mt-auto">
+                  <span class="badge bg-light text-dark border">Flask API</span>
+                  <span class="badge bg-light text-dark border">LINE Bot</span>
+                  <span class="badge bg-light text-dark border">Docker</span>
+                  <span class="badge bg-light text-dark border">Git</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 3. 資料處理與工程邏輯 -->
+          <div class="col">
+            <div class="card h-100 border-0 shadow-sm hover-shadow p-3">
+              <div class="card-body">
+                <div class="highlight-icon bg-warning-subtle text-warning-emphasis">
+                  <i class="bi bi-graph-up-arrow"></i>
+                </div>
+                <h5 class="card-title fw-bold">資料處理與工程邏輯</h5>
+                <p class="card-text text-secondary small">
+                  15 年半導體工程實務背景，具備扎實的實驗設計（DOE）、數據清理與特徵萃取工程思維。
+                </p>
+                <div class="d-flex flex-wrap gap-1 mt-auto">
+                  <span class="badge bg-light text-dark border">數據清理</span>
+                  <span class="badge bg-light text-dark border">特徵工程</span>
+                  <span class="badge bg-light text-dark border">工程邏輯</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 4. 模型部署與邊緣運算 -->
+          <div class="col">
+            <div class="card h-100 border-0 shadow-sm hover-shadow p-3">
+              <div class="card-body">
+                <div class="highlight-icon bg-info-subtle text-info-emphasis">
+                  <i class="bi bi-motherboard"></i>
+                </div>
+                <h5 class="card-title fw-bold">模型部署與邊緣運算</h5>
+                <p class="card-text text-secondary small">
+                  使用 Edge Impulse 進行 TinyML 輕量化模型轉換與硬體端部署 (ESP32-CAM、ESP32 邊緣裝置)。
+                </p>
+                <div class="d-flex flex-wrap gap-1 mt-auto">
+                  <span class="badge bg-light text-dark border">Edge Impulse</span>
+                  <span class="badge bg-light text-dark border">TinyML</span>
+                  <span class="badge bg-light text-dark border">ESP32</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 5. 跨領域與國際化 -->
+          <div class="col-md-12 col-lg-8">
+            <div class="card h-100 border-0 shadow-sm hover-shadow p-3">
+              <div class="card-body">
+                <div class="highlight-icon bg-danger-subtle text-danger">
+                  <i class="bi bi-translate"></i>
+                </div>
+                <h5 class="card-title fw-bold">跨領域與國際化</h5>
+                <p class="card-text text-secondary small">
+                  具備深厚「半導體 Domain Knowledge + 軟體 AI 技術」的雙重跨界優勢；擁有流暢的英文技術溝通能力及日文 (JLPT N3) 檢定實力，利於跨國技術協作。
+                </p>
+                <div class="d-flex flex-wrap gap-1 mt-auto">
+                  <span class="badge bg-light text-dark border">半導體領域</span>
+                  <span class="badge bg-light text-dark border">軟體工程</span>
+                  <span class="badge bg-light text-dark border">英文溝通</span>
+                  <span class="badge bg-light text-dark border">日語 N3</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==========================================
+           4. 核心專案實績 (Core Projects)
+           ========================================== -->
+      <section id="projects-section" class="mb-5">
+        <h2 class="section-title">
+          <i class="bi bi-kanban text-primary me-2"></i>核心專案實績
+        </h2>
+
+        <div class="row row-cols-1 row-cols-md-2 g-4">
+          <!-- 專案 1: 智慧藥盒 v5 -->
+          <div class="col">
+            <div class="card h-100 border-0 shadow-sm hover-shadow">
+              <div class="card-header bg-white border-bottom py-3 d-flex justify-content-between align-items-center">
+                <span class="badge bg-success">TinyML 端對端應用</span>
+                <a
+                  href="https://drive.google.com/file/d/1F78Y_txgJC2-M-BR1s0JhNmtxL0-PMh_/view?usp=drive_link"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn btn-sm btn-outline-primary"
+                >
+                  <i class="bi bi-box-arrow-up-right"></i> 連結
+                </a>
+              </div>
+              <div class="card-body">
+                <h3 class="h5 card-title fw-bold project-card-title mb-3">
+                  <a href="https://drive.google.com/file/d/1F78Y_txgJC2-M-BR1s0JhNmtxL0-PMh_/view?usp=drive_link" target="_blank" rel="noopener noreferrer">
+                    智慧藥盒 v5 (TinyML 端對端應用)
+                  </a>
+                </h3>
+                <ul class="list-unstyled small d-flex flex-column gap-2">
+                  <li class="bg-success-subtle border border-success-subtle rounded-3 p-2">
+                    <strong class="text-dark"><i class="bi bi-trophy-fill me-1 text-warning"></i>成果：</strong>
+                    <span class="fw-bold text-dark">實現從資料採集、模型訓練到邊緣推論與手機通知的完整閉環。</span>
+                  </li>
+                  <li class="text-secondary">
+                    <strong class="text-dark"><i class="bi bi-tools me-1 text-primary"></i>技術：</strong>
+                    ESP32-CAM + TinyML + Flutter + LINE Bot。
+                  </li>
+                  <li class="text-secondary">
+                    <strong class="text-dark"><i class="bi bi-crosshair me-1 text-primary"></i>情境：</strong>
+                    低成本醫療 AI 落地場景。
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- 專案 2: 工程報告自動化工具 -->
+          <div class="col">
+            <div class="card h-100 border-0 shadow-sm hover-shadow">
+              <div class="card-header bg-white border-bottom py-3 d-flex justify-content-between align-items-center">
+                <span class="badge bg-info text-dark">OpenCV + OCR</span>
+                <a
+                  href="https://drive.google.com/file/d/1le9VVicL6hyVQyrogJTSI3JL63-opP5b/view?usp=sharing"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn btn-sm btn-outline-primary"
+                >
+                  <i class="bi bi-box-arrow-up-right"></i> 連結
+                </a>
+              </div>
+              <div class="card-body">
+                <h3 class="h5 card-title fw-bold project-card-title mb-3">
+                  <a href="https://drive.google.com/file/d/1le9VVicL6hyVQyrogJTSI3JL63-opP5b/view?usp=sharing" target="_blank" rel="noopener noreferrer">
+                    工程報告自動化工具 (OpenCV + OCR)
+                  </a>
+                </h3>
+                <ul class="list-unstyled small d-flex flex-column gap-2">
+                  <li class="bg-success-subtle border border-success-subtle rounded-3 p-2">
+                    <strong class="text-dark"><i class="bi bi-trophy-fill me-1 text-warning"></i>成果：</strong>
+                    <span class="fw-bold text-dark">報表產出時間由 3 小時大幅縮短至 15 分鐘，行政效率提升達 90%。</span>
+                  </li>
+                  <li class="text-secondary">
+                    <strong class="text-dark"><i class="bi bi-tools me-1 text-primary"></i>技術：</strong>
+                    Python + OpenCV (ROI 定位、影像增強) + Tesseract OCR。
+                  </li>
+                  <li class="text-secondary">
+                    <strong class="text-dark"><i class="bi bi-crosshair me-1 text-primary"></i>情境：</strong>
+                    解決半導體 FAE 手動填表痛點。
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- 專案 3: ESP-MIAO -->
+          <div class="col">
+            <div class="card h-100 border-0 shadow-sm hover-shadow">
+              <div class="card-header bg-white border-bottom py-3 d-flex justify-content-between align-items-center">
+                <span class="badge bg-warning text-dark">邊緣語音 + IoT</span>
+                <a
+                  href="https://gamma.app/docs/ESP-MIAO--vsa20po1fli8aki?mode=doc"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn btn-sm btn-outline-primary"
+                >
+                  <i class="bi bi-box-arrow-up-right"></i> 簡報
+                </a>
+              </div>
+              <div class="card-body">
+                <h3 class="h5 card-title fw-bold project-card-title mb-3">
+                  <a href="https://gamma.app/docs/ESP-MIAO--vsa20po1fli8aki?mode=doc" target="_blank" rel="noopener noreferrer">
+                    ESP-MIAO (邊緣語音助理與 IoT 控制系統)
+                  </a>
+                </h3>
+                <div class="small bg-success-subtle border border-success-subtle rounded-3 p-2 mb-2">
+                  <strong class="text-dark"><i class="bi bi-trophy-fill me-1 text-warning"></i>成果：</strong>
+                  <span class="fw-bold text-dark">實現從喚醒詞偵測到伺服器語意解析與 MQTT 裝置控制的完整語音鏈路。</span>
+                </div>
+                <div class="small text-secondary">
+                  <strong class="text-dark"><i class="bi bi-tools me-1 text-primary"></i>核心技術架構：</strong>
+                  <ol class="ps-3 mt-1 mb-0">
+                    <li>即時音訊串流 — 避免連續記憶體申請導致 OOM</li>
+                    <li>JSON 協議 — 統一 WebSocket 訊息格式</li>
+                    <li>MQTT 發現機制 — IoT 裝置動態註冊與 LWT 離線狀態</li>
+                    <li>視覺回饋 — 7 種眼部動畫即時回饋</li>
+                    <li>雙核心分工 — ESP32 Core 0 處理音訊，Core 1 顯示動畫</li>
+                  </ol>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 專案 4: LINE智慧助理 -->
+          <div class="col">
+            <div class="card h-100 border-0 shadow-sm hover-shadow">
+              <div class="card-header bg-white border-bottom py-3 d-flex justify-content-between align-items-center">
+                <span class="badge bg-danger">LLM + Gemini API</span>
+                <a
+                  href="https://cloud-services-dashboard.pages.dev/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn btn-sm btn-outline-primary"
+                >
+                  <i class="bi bi-box-arrow-up-right"></i> 儀表板
+                </a>
+              </div>
+              <div class="card-body">
+                <h3 class="h5 card-title fw-bold project-card-title mb-3">
+                  <a href="https://cloud-services-dashboard.pages.dev/" target="_blank" rel="noopener noreferrer">
+                    LINE智慧助理 (LLM: Gemini API 整合)
+                  </a>
+                </h3>
+                <ul class="list-unstyled small d-flex flex-column gap-2">
+                  <li class="bg-success-subtle border border-success-subtle rounded-3 p-2">
+                    <strong class="text-dark"><i class="bi bi-trophy-fill me-1 text-warning"></i>成果：</strong>
+                    <span class="fw-bold text-dark">優化 ChatSession 狀態管理，顯著降低 Token 消耗與對話延遲。</span>
+                  </li>
+                  <li class="text-secondary">
+                    <strong class="text-dark"><i class="bi bi-tools me-1 text-primary"></i>技術：</strong>
+                    Python + Flask + LINE Messaging API + Google Gemini API。
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- 專案 5: vacuumd -->
+          <div class="col">
+            <div class="card h-100 border-0 shadow-sm hover-shadow">
+              <div class="card-header bg-white border-bottom py-3 d-flex justify-content-between align-items-center">
+                <span class="badge bg-primary">LAN 控制器 + IoT</span>
+                <a
+                  href="https://docs.google.com/presentation/d/1phy_TuwkIL_leaYSENWKMkuZMr_t9ejJSgWXFR08Bsk/edit?usp=drive_link"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn btn-sm btn-outline-primary"
+                >
+                  <i class="bi bi-box-arrow-up-right"></i> 簡報
+                </a>
+              </div>
+              <div class="card-body">
+                <h3 class="h5 card-title fw-bold project-card-title mb-3">
+                  <a href="https://docs.google.com/presentation/d/1phy_TuwkIL_leaYSENWKMkuZMr_t9ejJSgWXFR08Bsk/edit?usp=drive_link" target="_blank" rel="noopener noreferrer">
+                    vacuumd (次世代掃地機器人 LAN 本地控制器)
+                  </a>
+                </h3>
+                <ul class="list-unstyled small d-flex flex-column gap-2">
+                  <li class="bg-success-subtle border border-success-subtle rounded-3 p-2">
+                    <strong class="text-dark"><i class="bi bi-trophy-fill me-1 text-warning"></i>成果：</strong>
+                    <span class="fw-bold text-dark">斷網下仍可透過內建網頁儀表板操作，並與 Home Assistant 無縫整合，實現高可靠度的本地智慧清潔管理。</span>
+                  </li>
+                  <li class="text-secondary">
+                    <strong class="text-dark"><i class="bi bi-tools me-1 text-primary"></i>技術：</strong>
+                    Python + Pydantic + FastAPI + MQTT + dnsmasq，內建斷網容錯（Fake Cloud）、智慧排程防衝突與充電座看門狗。
+                  </li>
+                  <li class="text-secondary">
+                    <strong class="text-dark"><i class="bi bi-crosshair me-1 text-primary"></i>情境：</strong>
+                    Roborock / Xiaomi 掃地機過度依賴雲端，斷網即離線休眠無法控制，將控制權完全收回本地。
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==========================================
+           5. 學歷與工作經歷 (Experience & Education)
+           ========================================== -->
+      <section id="experience-section" class="mb-5">
+        <h2 class="section-title">
+          <i class="bi bi-mortarboard text-primary me-2"></i>學歷與經歷
+        </h2>
+
+        <div class="row g-4">
+          <!-- 左欄：學歷與訓練證照 -->
+          <div class="col-lg-6">
+            <!-- 學歷 Card -->
+            <div class="card h-100 border-0 shadow-sm hover-shadow">
+              <div class="card-header bg-white border-bottom py-3">
+                <h3 class="h5 fw-bold mb-0 text-primary">
+                  <i class="bi bi-book me-2"></i>學歷背景
+                </h3>
+              </div>
+              <div class="card-body">
+                <div class="d-flex flex-column gap-3">
+                  <div class="border-start border-3 border-primary ps-3">
+                    <h5 class="fw-bold mb-1">國立台灣科技大學 化工所</h5>
+                    <p class="text-secondary mb-1">
+                      <span class="badge bg-primary-subtle text-primary me-2">碩士</span>
+                      2002/09 ~ 2005/01
+                    </p>
+                  </div>
+                  <div class="border-start border-3 border-secondary ps-3">
+                    <h5 class="fw-bold mb-1">大同大學 化工系</h5>
+                    <p class="text-secondary mb-1">
+                      <span class="badge bg-secondary-subtle text-secondary me-2">學士</span>
+                      1998/09 ~ 2002/06
+                    </p>
+                  </div>
+                </div>
+
+                <hr class="my-4" />
+
+                <!-- 訓練與證照 -->
+                <h4 class="h6 fw-bold text-dark mb-3">
+                  <i class="bi bi-patch-check-fill text-success me-2"></i>專業訓練與證照
+                </h4>
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item px-0 d-flex justify-content-between align-items-center">
+                    <div>
+                      <strong>職訓：</strong>AI物聯網程式設計實務
+                    </div>
+                    <span class="badge bg-success-subtle text-success">2024/10 ~ 2025/04</span>
+                  </li>
+                  <li class="list-group-item px-0 d-flex justify-content-between align-items-center">
+                    <div>
+                      <strong>證照：</strong>TQC+ Python3 專業級 程式設計
+                    </div>
+                    <span class="badge bg-info-subtle text-info-emphasis">專業級認證</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- 右欄：工作經歷與專有名詞 -->
+          <div class="col-lg-6">
+            <div class="card h-100 border-0 shadow-sm hover-shadow">
+              <div class="card-header bg-white border-bottom py-3">
+                <h3 class="h5 fw-bold mb-0 text-primary">
+                  <i class="bi bi-building me-2"></i>工作經歷
+                </h3>
+              </div>
+              <div class="card-body">
+                <div class="mb-4">
+                  <div class="d-flex justify-content-between align-items-baseline flex-wrap">
+                    <h5 class="fw-bold mb-1">萬博祿台灣股份有限公司</h5>
+                    <span class="badge bg-primary">13年4個月</span>
+                  </div>
+                  <div class="text-muted small mb-2">
+                    FAE工程師 (CMP/化學品領域) | 2010/02 ~ 2023/05
+                  </div>
+                  <ul class="small text-secondary custom-list ps-3 mb-0">
+                    <li>客戶端產品特性驗證 / 程序問題分析 / 故障排除</li>
+                    <li>技術回覆與指導、持續改善專案、Escalation 管理</li>
+                  </ul>
+                </div>
+
+                <div class="mb-4">
+                  <div class="d-flex justify-content-between align-items-baseline flex-wrap">
+                    <h5 class="fw-bold mb-1">南亞科技</h5>
+                    <span class="badge bg-secondary">2年1個月</span>
+                  </div>
+                  <div class="text-muted small mb-2">
+                    CMP製程工程師 | 2006/08 ~ 2008/08
+                  </div>
+                  <ul class="small text-secondary custom-list ps-3 mb-0">
+                    <li>12吋廠建廠種子人員、90~70nm 製程導入、APC/FMEA/SPC 管制</li>
+                  </ul>
+                </div>
+
+                <!-- 專有名詞解釋 (Aside -> Bootstrap Alert) -->
+                <div class="alert alert-info py-2 px-3 mb-2 small d-flex align-items-center" role="alert">
+                  <i class="bi bi-info-circle-fill me-2 fs-5"></i>
+                  <div><strong>What's CMP?</strong> CMP (Chemical Mechanical Polishing) 化學機械研磨</div>
+                </div>
+                <div class="alert alert-secondary py-2 px-3 mb-0 small d-flex align-items-center" role="alert">
+                  <i class="bi bi-question-circle-fill me-2 fs-5"></i>
+                  <div><strong>What's FAE?</strong> FAE (Field Application Engineer) 現場應用工程師</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==========================================
+           6. 意見回饋表單 (Feedback Form)
+           ========================================== -->
+      <section id="feedback-section" class="mb-5">
+        <h2 class="section-title">
+          <i class="bi bi-envelope-paper text-primary me-2"></i>意見回饋與留言
+        </h2>
+        <div class="card border-0 shadow-sm hover-shadow">
+          <div class="card-body p-4 p-md-5">
+            <form id="feedbackForm" onsubmit="event.preventDefault(); alert('感謝您的意見回饋！');">
+              <fieldset>
+                <div class="mb-3">
+                  <label for="name" class="form-label fw-bold">
+                    <i class="bi bi-person me-1"></i>使用者姓名：
+                  </label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="name"
+                    placeholder="請輸入姓名"
+                    required
+                  />
+                </div>
+                <div class="mb-4">
+                  <label for="feedback" class="form-label fw-bold">
+                    <i class="bi bi-chat-left-text me-1"></i>意見回饋內容：
+                  </label>
+                  <textarea
+                    class="form-control"
+                    id="feedback"
+                    rows="3"
+                    placeholder="請輸入意見或建議"
+                    required
+                  ></textarea>
+                </div>
+                <button id="submitBtn" type="submit" class="btn btn-primary px-4 py-2">
+                  <i class="bi bi-send me-1"></i>提交意見
+                </button>
+              </fieldset>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ==========================================
+         7. 頁尾 (Footer & Address)
+         ========================================== -->
+    <footer class="text-white py-4 mt-5">
+      <div class="container text-center">
+        <address class="mb-2 not-italic">
+          <span class="me-3">
+            <i class="bi bi-person-circle me-1"></i>履歷擁有者：劉志文
+          </span>
+          <span>
+            <i class="bi bi-building me-1"></i>公司：個人
+          </span>
+        </address>
+        <p class="small text-secondary mb-0">
+          &copy; 2026 Justin Liu. All rights reserved. Powered by Bootstrap 5 &amp; Antigravity.
+        </p>
+      </div>
+    </footer>
+
+    <!-- Bootstrap 5.3.3 JS Bundle CDN (包含 Popper.js) -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
