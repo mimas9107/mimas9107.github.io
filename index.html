@@ -779,7 +779,9 @@
         </h2>
         <div class="card border-0 shadow-sm hover-shadow">
           <div class="card-body p-4 p-md-5">
-            <form id="feedbackForm" onsubmit="event.preventDefault(); alert('感謝您的意見回饋！');">
+            <div data-fs-success class="alert alert-success" role="status" aria-live="polite"></div>
+            <div data-fs-error class="alert alert-danger" role="alert" aria-live="assertive"></div>
+            <form id="feedbackForm">
               <fieldset>
                 <div class="mb-3">
                   <label for="name" class="form-label fw-bold">
@@ -789,9 +791,12 @@
                     type="text"
                     class="form-control"
                     id="name"
+                    name="name"
+                    data-fs-field
                     placeholder="請輸入姓名"
                     required
                   />
+                  <div data-fs-error="name" class="invalid-feedback"></div>
                 </div>
                 <div class="mb-4">
                   <label for="feedback" class="form-label fw-bold">
@@ -800,12 +805,15 @@
                   <textarea
                     class="form-control"
                     id="feedback"
+                    name="message"
+                    data-fs-field
                     rows="3"
                     placeholder="請輸入意見或建議"
                     required
                   ></textarea>
+                  <div data-fs-error="message" class="invalid-feedback"></div>
                 </div>
-                <button id="submitBtn" type="submit" class="btn btn-primary px-4 py-2">
+                <button id="submitBtn" type="submit" data-fs-submit-btn class="btn btn-primary px-4 py-2">
                   <i class="bi bi-send me-1"></i>提交意見
                 </button>
               </fieldset>
@@ -829,7 +837,7 @@
           </span>
         </address>
         <p class="small text-secondary mb-0">
-          &copy; 2026 Justin Liu. All rights reserved. Powered by Bootstrap 5 &amp; Antigravity.
+          &copy; 2026 Justin Liu. All rights reserved. Powered by Bootstrap 5 &amp; AI agents.
         </p>
       </div>
     </footer>
@@ -840,5 +848,17 @@
       integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
       crossorigin="anonymous"
     ></script>
+    <script>
+      window.formspree =
+        window.formspree ||
+        function () {
+          (formspree.q = formspree.q || []).push(arguments);
+        };
+      formspree('initForm', {
+        formElement: '#feedbackForm',
+        formId: 'moejrbnl',
+      });
+    </script>
+    <script src="https://unpkg.com/@formspree/ajax@1" defer></script>
   </body>
 </html>
