@@ -5,175 +5,175 @@
 
 /* 平滑滾動與導航列高度位移補償 */
 html {
-  scroll-behavior: smooth;
-  scroll-padding-top: 80px;
+  scroll-behavior: smooth;      /* 點擊錨點時平滑滾動 */
+  scroll-padding-top: 80px;     /* 避免被固定導覽列遮擋 */
 }
 
 body {
-  font-family:
+  font-family:                  /* 系統字體優先 */
     -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue',
     Arial, sans-serif;
-  background-color: #f8fafc;
-  color: #1e293b;
+  background-color: #f8fafc;    /* 頁面背景色 */
+  color: #1e293b;              /* 預設文字顏色 */
 }
 
 /* 頂部導航列 */
 .navbar {
-  backdrop-filter: blur(8px);
-  background-color: rgba(15, 23, 42, 0.95) !important;
+  backdrop-filter: blur(8px);                        /* 毛玻璃效果 */
+  background-color: rgba(15, 23, 42, 0.95) !important; /* 半透明深色背景 */
 }
 
 .navbar-brand {
-  font-weight: 700;
-  letter-spacing: 0.5px;
+  font-weight: 700;           /* 品牌名稱粗體 */
+  letter-spacing: 0.5px;      /* 字母間距 */
 }
 
 .nav-link {
-  font-size: 0.95rem;
-  transition: color 0.2s ease-in-out;
+  font-size: 0.95rem;                    /* 導覽連結字體大小 */
+  transition: color 0.2s ease-in-out;   /* 顏色過渡效果 */
 }
 
 .nav-link:hover {
-  color: #38bdf8 !important;
+  color: #38bdf8 !important; /* 滑鼠懸停時的高亮顏色 */
 }
 
 /* 輪播器 (Carousel) */
 #projectCarousel {
-  border-radius: 16px;
-  overflow: hidden;
-  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.15);
+  border-radius: 16px;                          /* 圓角 */
+  overflow: hidden;                            /* 超出隱藏 */
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.15); /* 陰影效果 */
 }
 
 .carousel-item {
-  height: 460px;
-  background-color: #0f172a;
+  height: 460px;                /* 輪播項目固定高度 */
+  background-color: #0f172a;    /* 預設背景色（圖片載入前） */
 }
 
 .carousel-item img {
-  height: 100%;
-  object-fit: cover;
-  filter: brightness(0.65);
+  height: 100%;                 /* 圖片填滿高度 */
+  object-fit: cover;            /* 等比例裁切填滿 */
+  filter: brightness(0.65);     /* 降低亮度讓文字更清晰 */
 }
 
 .carousel-caption {
-  background: rgba(15, 23, 42, 0.75);
-  backdrop-filter: blur(6px);
-  border-radius: 12px;
-  padding: 1.5rem 2rem;
-  max-width: 760px;
-  margin: 0 auto 1.5rem;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(15, 23, 42, 0.75);           /* 半透明背景 */
+  backdrop-filter: blur(6px);                   /* 毛玻璃效果 */
+  border-radius: 12px;                          /* 圓角 */
+  padding: 1.5rem 2rem;                         /* 內距 */
+  max-width: 760px;                             /* 最大寬度 */
+  margin: 0 auto 1.5rem;                        /* 水平置中與下方間距 */
+  border: 1px solid rgba(255, 255, 255, 0.1); /* 半透明邊框 */
 }
 
 .carousel-caption h3 {
-  font-weight: 700;
-  margin-bottom: 0.75rem;
+  font-weight: 700;           /* 標題粗體 */
+  margin-bottom: 0.75rem;     /* 下方間距 */
 }
 
 /* 卡片陰影與微互動 */
 .hover-shadow {
-  transition:
+  transition:                                   /* 過渡效果 */
     transform 0.25s ease,
     box-shadow 0.25s ease;
-  border-color: #e2e8f0;
+  border-color: #e2e8f0;                        /* 邊框顏色 */
 }
 
 .hover-shadow:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 24px -8px rgba(15, 23, 42, 0.12) !important;
-  border-color: #cbd5e1;
+  transform: translateY(-4px);                 /* 向上移動 */
+  box-shadow: 0 12px 24px -8px rgba(15, 23, 42, 0.12) !important; /* 陰影加深 */
+  border-color: #cbd5e1;                       /* 邊框顏色變化 */
 }
 
 /* 章節標題底線裝飾 */
 .section-title {
-  position: relative;
-  font-weight: 700;
-  padding-bottom: 0.75rem;
-  margin-bottom: 1.5rem;
+  position: relative;         /* 相對定位供偽元素使用 */
+  font-weight: 700;           /* 粗體 */
+  padding-bottom: 0.75rem;    /* 下方內距（為底線預留空間） */
+  margin-bottom: 1.5rem;      /* 下方外距 */
 }
 
 .section-title::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 50px;
-  height: 4px;
-  background-color: #2563eb;
-  border-radius: 2px;
+  content: '';                /* 偽元素內容 */
+  position: absolute;         /* 絕對定位 */
+  bottom: 0;                  /* 定位於底部 */
+  left: 0;                    /* 定位於左側 */
+  width: 50px;                /* 底線寬度 */
+  height: 4px;                /* 底線高度 */
+  background-color: #2563eb;  /* 底線顏色 */
+  border-radius: 2px;         /* 圓角 */
 }
 
 .section-title.text-center::after {
-  left: 50%;
+  left: 50%;                  /* 置中 */
   transform: translateX(-50%);
 }
 
 /* 技術亮點圖示徽章 */
 .highlight-icon {
-  width: 44px;
-  height: 44px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 10px;
-  font-size: 1.25rem;
-  margin-bottom: 0.75rem;
+  width: 44px;                /* 寬度 */
+  height: 44px;               /* 高度 */
+  display: inline-flex;       /* 彈性佈局 */
+  align-items: center;        /* 垂直置中 */
+  justify-content: center;    /* 水平置中 */
+  border-radius: 10px;        /* 圓角 */
+  font-size: 1.25rem;         /* 圖示大小 */
+  margin-bottom: 0.75rem;     /* 下方間距 */
 }
 
 /* 專案卡片標題連結 */
 .project-card-title a {
-  color: #1e293b;
-  text-decoration: none;
-  transition: color 0.2s ease;
+  color: #1e293b;             /* 預設顏色 */
+  text-decoration: none;      /* 移除底線 */
+  transition: color 0.2s ease; /* 顏色過渡 */
 }
 
 .project-card-title a:hover {
-  color: #2563eb;
+  color: #2563eb;             /* 滑鼠懸停顏色 */
 }
 
 /* 列表美化 */
 .custom-list li {
-  margin-bottom: 0.5rem;
-  line-height: 1.6;
+  margin-bottom: 0.5rem;      /* 項目間距 */
+  line-height: 1.6;           /* 行高 */
 }
 
 /* 頁尾樣式 */
 footer {
-  background-color: #0f172a;
-  border-top: 1px solid #1e293b;
+  background-color: #0f172a;  /* 深色背景 */
+  border-top: 1px solid #1e293b; /* 頂部邊框 */
 }
 
 /* 響應式微調 (RWD Media Queries) */
 @media (max-width: 767.98px) {
   .carousel-item {
-    height: 380px;
+    height: 380px;            /* 手機版輪播高度調整 */
   }
 
   .carousel-caption {
-    padding: 1rem;
-    bottom: 1.5rem;
+    padding: 1rem;            /* 手機版內距調整 */
+    bottom: 1.5rem;           /* 底部位置調整 */
   }
 
   .carousel-caption h3 {
-    font-size: 1.15rem;
+    font-size: 1.15rem;       /* 手機版標題字體 */
   }
 
   .carousel-caption p {
-    font-size: 0.85rem;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
+    font-size: 0.85rem;       /* 手機版內文字體 */
+    display: -webkit-box;     /* 多行截斷 */
+    -webkit-line-clamp: 2;    /* 限制顯示兩行 */
     -webkit-box-orient: vertical;
     overflow: hidden;
   }
 
   .section-title {
-    font-size: 1.35rem;
+    font-size: 1.35rem;       /* 手機版章節標題大小 */
   }
 
   /* 專門用於對抗純文字爬蟲的 CSS 反轉機制 */
   .reverse-text {
-    direction: rtl;
-    unicode-bidi: bidi-override;
+    direction: rtl;           /* 文字方向由右到左 */
+    unicode-bidi: bidi-override; /* 強制雙向文字覆寫 */
     display: inline-block;
   }
 }
