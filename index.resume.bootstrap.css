@@ -164,6 +164,39 @@ body {
   filter: none;
 }
 
+/* 專有名詞懸停解釋 (CMP / FAE Floating Glossary Alert) */
+.glossary-term {
+  color: #1e293b;
+  font-weight: 600;
+  text-decoration: underline dashed #2563eb;
+  text-underline-offset: 3px;
+  cursor: help;
+  transition: color 0.15s ease;
+}
+
+.glossary-term:hover,
+.glossary-term:focus-visible {
+  color: #2563eb;
+  outline: none;
+}
+
+.glossary-floating-alert {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1080;
+  max-width: min(420px, calc(100vw - 24px));
+  pointer-events: none;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.15s ease, visibility 0.15s ease;
+}
+
+.glossary-floating-alert.is-visible {
+  opacity: 1;
+  visibility: visible;
+}
+
 /* 頁尾樣式 */
 footer {
   background-color: #0f172a;  /* 深色背景 */

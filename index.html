@@ -765,7 +765,17 @@
                     <span class="badge bg-primary">13年4個月</span>
                   </div>
                   <div class="text-muted small mb-2">
-                    FAE工程師 (CMP/化學品領域) | 2010/02 ~ 2023/05
+                    <span
+                      class="glossary-term"
+                      data-glossary-target="glossary-fae"
+                      tabindex="0"
+                      aria-describedby="glossary-fae"
+                    >FAE</span>工程師 (<span
+                      class="glossary-term"
+                      data-glossary-target="glossary-cmp"
+                      tabindex="0"
+                      aria-describedby="glossary-cmp"
+                    >CMP</span>/化學品領域) | 2010/02 ~ 2023/05
                   </div>
                   <ul class="small text-secondary custom-list ps-3 mb-0">
                     <li>客戶端產品特性驗證 / 程序問題分析 / 故障排除</li>
@@ -773,25 +783,40 @@
                   </ul>
                 </div>
 
-                <div class="mb-4">
+                <div class="mb-0">
                   <div class="d-flex justify-content-between align-items-baseline flex-wrap">
                     <h5 class="fw-bold mb-1">南亞科技</h5>
                     <span class="badge bg-secondary">2年1個月</span>
                   </div>
                   <div class="text-muted small mb-2">
-                    CMP製程工程師 | 2006/08 ~ 2008/08
+                    <span
+                      class="glossary-term"
+                      data-glossary-target="glossary-cmp"
+                      tabindex="0"
+                      aria-describedby="glossary-cmp"
+                    >CMP</span>製程工程師 | 2006/08 ~ 2008/08
                   </div>
                   <ul class="small text-secondary custom-list ps-3 mb-0">
                     <li>12吋廠建廠種子人員、90~70nm 製程導入、APC/FMEA/SPC 管制</li>
                   </ul>
                 </div>
 
-                <!-- 專有名詞解釋 (Aside -> Bootstrap Alert) -->
-                <div class="alert alert-info py-2 px-3 mb-2 small d-flex align-items-center" role="alert">
+                <!-- 專有名詞解釋 (Aside -> Bootstrap Alert，滑過上方 CMP / FAE 時浮動顯示於滑鼠旁) -->
+                <div
+                  id="glossary-cmp"
+                  class="alert alert-info py-2 px-3 mb-0 small d-flex align-items-center glossary-floating-alert shadow"
+                  role="tooltip"
+                  aria-hidden="true"
+                >
                   <i class="bi bi-info-circle-fill me-2 fs-5"></i>
                   <div><strong>What's CMP?</strong> CMP (Chemical Mechanical Polishing) 化學機械研磨</div>
                 </div>
-                <div class="alert alert-secondary py-2 px-3 mb-0 small d-flex align-items-center" role="alert">
+                <div
+                  id="glossary-fae"
+                  class="alert alert-secondary py-2 px-3 mb-0 small d-flex align-items-center glossary-floating-alert shadow"
+                  role="tooltip"
+                  aria-hidden="true"
+                >
                   <i class="bi bi-question-circle-fill me-2 fs-5"></i>
                   <div><strong>What's FAE?</strong> FAE (Field Application Engineer) 現場應用工程師</div>
                 </div>
@@ -1065,6 +1090,68 @@
         formElement: '#feedbackForm',
         formId: 'moejrbnl',
       });
+
+      // 專有名詞解釋 (CMP / FAE) 滑鼠懸停跟隨浮動效果
+      (function () {
+        const floatingAlerts = document.querySelectorAll('.glossary-floating-alert');
+        // 移至 body 頂層，避免父層 .hover-shadow 的 transform 影響 fixed 定位座標
+        floatingAlerts.forEach((alertEl) => {
+          document.body.appendChild(alertEl);
+        });
+
+        const OFFSET_X = 16;
+        const OFFSET_Y = 16;
+        const MARGIN = 12;
+
+        function positionNearPoint(alertEl, clientX, clientY) {
+          const rect = alertEl.getBoundingClientRect();
+          let left = clientX + OFFSET_X;
+          let top = clientY + OFFSET_Y;
+
+          if (left + rect.width + MARGIN > window.innerWidth) {
+            left = Math.max(MARGIN, clientX - rect.width - OFFSET_X);
+          }
+          if (top + rect.height + MARGIN > window.innerHeight) {
+            top = Math.max(MARGIN, clientY - rect.height - OFFSET_Y);
+          }
+
+          alertEl.style.left = `${left}px`;
+          alertEl.style.top = `${top}px`;
+        }
+
+        document.querySelectorAll('.glossary-term').forEach((termEl) => {
+          const targetId = termEl.getAttribute('data-glossary-target');
+          const alertEl = document.getElementById(targetId);
+          if (!alertEl) return;
+
+          termEl.addEventListener('mouseenter', (e) => {
+            alertEl.classList.add('is-visible');
+            alertEl.setAttribute('aria-hidden', 'false');
+            positionNearPoint(alertEl, e.clientX, e.clientY);
+          });
+
+          termEl.addEventListener('mousemove', (e) => {
+            positionNearPoint(alertEl, e.clientX, e.clientY);
+          });
+
+          termEl.addEventListener('mouseleave', () => {
+            alertEl.classList.remove('is-visible');
+            alertEl.setAttribute('aria-hidden', 'true');
+          });
+
+          termEl.addEventListener('focus', () => {
+            const termRect = termEl.getBoundingClientRect();
+            alertEl.classList.add('is-visible');
+            alertEl.setAttribute('aria-hidden', 'false');
+            positionNearPoint(alertEl, termRect.left, termRect.bottom);
+          });
+
+          termEl.addEventListener('blur', () => {
+            alertEl.classList.remove('is-visible');
+            alertEl.setAttribute('aria-hidden', 'true');
+          });
+        });
+      })();
     </script>
     <script src="https://unpkg.com/@formspree/ajax@1" defer></script>
   </body>
