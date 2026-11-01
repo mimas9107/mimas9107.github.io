@@ -137,6 +137,33 @@ body {
   line-height: 1.6;           /* 行高 */
 }
 
+/* 專業訓練與證照燈箱 (Certificate Lightbox) */
+.cert-lightbox-link {
+  color: #1e293b;
+  transition: color 0.2s ease;
+  cursor: pointer;
+}
+
+.cert-lightbox-link:hover {
+  color: #2563eb;
+  text-decoration: underline !important;
+}
+
+.cert-lightbox-modal .carousel-item {
+  height: auto;
+  background-color: transparent;
+}
+
+.cert-lightbox-modal .carousel-item img,
+.cert-lightbox-img {
+  height: auto;
+  max-height: 75vh;
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
+  filter: none;
+}
+
 /* 頁尾樣式 */
 footer {
   background-color: #0f172a;  /* 深色背景 */
@@ -147,6 +174,10 @@ footer {
 @media (max-width: 767.98px) {
   .carousel-item {
     height: 380px;            /* 手機版輪播高度調整 */
+  }
+
+  .cert-lightbox-modal .carousel-item {
+    height: auto;             /* 證照燈箱於手機版維持自適應高度 */
   }
 
   .carousel-caption {
