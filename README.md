@@ -14,7 +14,7 @@ agent_sign: ['human/mimas', 'opencode/agent', 'agy/gemini-cli', 'codex/agent', '
 
 ## 關於此專案
 
-[請在此簡要說明網站內容、目的和主要功能。它解決了什麼問題？它展示了什麼內容？]
+[我的履歷展示網站]
 
 ## 開始使用
 
@@ -40,7 +40,7 @@ agent_sign: ['human/mimas', 'opencode/agent', 'agy/gemini-cli', 'codex/agent', '
     yarn install
     ```
 
-### 本地運行
+### 本地佈署運行
 
 啟動開發伺服器：
 
@@ -83,10 +83,6 @@ yarn dev
 
     *   **手動部署**: 您也可以手動將建置輸出推送到 `gh-pages` 分支，或配置 GitHub Actions 進行自動化部署。請參閱 [GitHub Pages 文件](https://pages.github.com/) 以取得詳細說明。
 
-## 貢獻
-
-[如果您歡迎貢獻，請在此處添加說明。解釋他人如何貢獻、程式碼風格和請求合併（pull request）流程。]
-
 ## 授權條款
 
-此專案採用 MIT 授權條款 - 請參閱 [LICENSE.md](LICENSE.md) 檔案了解詳情。
+此專案採用 MIT 授權條款。
